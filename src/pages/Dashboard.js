@@ -1,33 +1,34 @@
 import styles from '../styles/pages/Dashboard.module.css';
-
+import { useQuery,gql,useSubscription } from '@apollo/client';
 import { useOutletContext } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
+const GET_QUERY = gql`
+query MySubscription {
+  rosters {
+    title
+    entites {
+      name
+      items {
+        name
+      }
+    }
+  }
+}
+`
+
 const Dashboard = () => {
   const { user } = useOutletContext();
-
+  const { data } = useQuery(GET_QUERY);
+  console.log("data",data);
   return (
-    <>
-      <Helmet>
-        <title>Dashboard - Nhost</title>
-      </Helmet>
-
-      <div>
-        <h2 className={styles.title}>Dashboard</h2>
-
-        <p className={styles['welcome-text']}>
-          Welcome, {user?.metadata?.firstName || 'stranger'}{' '}
-          <span role="img" alt="hello">
-            👋
-          </span>
-        </p>
-
-        <p className={styles['info-text']}>
-          Edit the <code>src/pages/Dashboard.js</code> file to populate this
-          page.
-        </p>
-      </div>
-    </>
+    <div>
+      {!data? (<div>No data</div>
+      ):(<ul>{data.rosters.map((todo)=>{
+        return<li>{todo.rosters}</li>
+      })}</ul>)}
+    </div>
+      
   );
 };
 
