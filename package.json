@@ -8,6 +8,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@headlessui/react": "^1.7.18",
     "@heroicons/react": "^1.0.6",
+    "@nhost/nhost-js": "^3.0.7",
     "@nhost/react": "^3.2.2",
     "@nhost/react-apollo": "^9.0.2",
     "@testing-library/jest-dom": "^5.17.0",
