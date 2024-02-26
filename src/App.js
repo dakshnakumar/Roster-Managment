@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 
+// import NavBar from './pages/NavBar';
+import Roster from './pages/Roster';
 import Layout from './components/Layout';
 import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
@@ -12,6 +14,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
+          <Route path="roster" element={<Roster />} />
           <Route path="sign-up" element={<SignUp />} />
           <Route path="sign-in" element={<SignIn />} />
           <Route path="/" element={<Layout />}>
