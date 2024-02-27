@@ -5,12 +5,13 @@ import { Helmet } from 'react-helmet';
 
 const GET_QUERY = gql`
 query MyQuery {
-  entites {
-    items {
-      name
-    }
+  values {
+    col_3
+    col_2
+    col_1
   }
 }
+
 `
 
 const Dashboard = () => {
@@ -20,8 +21,8 @@ const Dashboard = () => {
   return (
     <div>
       {!data? (<div>No data</div>
-      ):(<ul>{data.entites.items.map((todo)=>{
-        return<li>{todo}</li>
+      ):(<ul>{data.values.map((todo)=>{
+        return<li>{todo.col_3 };{todo.col_2};{todo.col_1}</li>
       })}</ul>)}
     </div>
       
