@@ -4,14 +4,10 @@ import { useOutletContext } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
 const GET_QUERY = gql`
-query MySubscription {
-  rosters {
-    title
-    entites {
+query MyQuery {
+  entites {
+    items {
       name
-      items {
-        name
-      }
     }
   }
 }
@@ -24,8 +20,8 @@ const Dashboard = () => {
   return (
     <div>
       {!data? (<div>No data</div>
-      ):(<ul>{data.rosters.map((todo)=>{
-        return<li>{todo.rosters}</li>
+      ):(<ul>{data.entites.items.map((todo)=>{
+        return<li>{todo}</li>
       })}</ul>)}
     </div>
       
